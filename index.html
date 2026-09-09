@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BETTHER">
 <meta property="og:title" content="BETTHER — Bureau d.étude thermique">
-<meta property="og:description" content="Construction & rénovation : RE2020, audits énergétiques, dimensionnement des fluides. De l.isolation à la production solaire.">
+<meta property="og:description" content="Construction & rénovation : RE2020, audits énergétiques, dimensionnement des fluides.">
 <meta property="og:url" content="https://betther.tech/">
 <meta property="og:image" content="https://betther.tech/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -488,6 +488,9 @@
   .wiz-fields label{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:7px}
   .wiz-fields input{font-family:var(--font-body);font-size:15.5px;color:var(--ink);background:var(--ground);border:1px solid var(--line-strong);border-radius:10px;padding:12px 14px}
   .wiz-fields input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+  .wiz-fields textarea{width:100%;box-sizing:border-box;font-family:var(--font-body);font-size:15.5px;color:var(--ink);background:var(--ground);border:1px solid var(--line-strong);border-radius:10px;padding:12px 14px;resize:vertical;min-height:82px}
+  .wiz-fields textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+  .wiz-fields .field-full{grid-column:1 / -1}
   .wiz-attach{margin-top:18px}
   .wiz-attach-label{display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
   .wiz-attach-label span{text-transform:none;letter-spacing:0;color:var(--accent-ink);font-size:11px}
@@ -756,13 +759,29 @@
         <p>Répondez à quelques questions illustrées — pas besoin d'expliquer votre projet. Devis gratuit, réponse sous 24&nbsp;h après réception de vos plans.</p>
       </div>
       <div class="wiz-top">
-        <span class="wiz-step-label" id="wizStepLabel">Étape 1 / 5</span>
-        <span class="wiz-step-label" id="wizStepName">Type de bâtiment</span>
+        <span class="wiz-step-label" id="wizStepLabel">Étape 1 / 9</span>
+        <span class="wiz-step-label" id="wizStepName">Votre pack</span>
       </div>
       <div class="wiz-progress"><i id="wizBar"></i></div>
 
-      <!-- STEP 1 : bâtiment -->
+      <!-- STEP 0 : pack / prestations (multi) -->
       <div class="wiz-step on" data-step="0">
+        <div class="wiz-q">Votre pack de prestations&nbsp;?</div>
+        <div class="wiz-hint">Plusieurs choix possibles. Pas sûr&nbsp;? Choisissez « Je ne sais pas encore » — on vous conseille.</div>
+        <div class="wiz-opts wiz-opts-sm" data-key="prestations" data-multi>
+          <button type="button" class="wiz-opt" data-val="Attestation Bbio (RE2020)" data-price="350"><span class="ol">Attestation Bbio</span><span class="od">RE2020 · dépôt du permis</span></button>
+          <button type="button" class="wiz-opt" data-val="Étude de ventilation" data-price="300"><span class="ol">Étude de ventilation</span><span class="od">VMC · débits</span></button>
+          <button type="button" class="wiz-opt" data-val="Audit énergétique" data-price="600"><span class="ol">Audit énergétique</span><span class="od">Rénovation</span></button>
+          <button type="button" class="wiz-opt" data-val="Bilan thermique de l'existant" data-price="400"><span class="ol">Bilan thermique</span><span class="od">Existant · déperditions</span></button>
+          <button type="button" class="wiz-opt" data-val="Analyse du cycle de vie (ACV)" data-price="450"><span class="ol">ACV</span><span class="od">Carbone</span></button>
+          <button type="button" class="wiz-opt" data-val="Dimensionnement des fluides" data-price="550"><span class="ol">Dimensionnement fluides</span><span class="od">CVC · plomberie</span></button>
+          <button type="button" class="wiz-opt" data-val="Plans &amp; schémas 2D" data-price="350"><span class="ol">Plans &amp; schémas 2D</span><span class="od">Réseaux fluides</span></button>
+          <button type="button" class="wiz-opt wiz-opt-unsure" data-val="À définir avec BETTHER" data-price="0" data-unsure><span class="ol">Je ne sais pas encore</span><span class="od">On vous conseille</span></button>
+        </div>
+      </div>
+
+      <!-- STEP 1 : bâtiment -->
+      <div class="wiz-step" data-step="1">
         <div class="wiz-q">Quel type de bâtiment&nbsp;?</div>
         <div class="wiz-hint">Sélectionnez ce qui correspond à votre projet.</div>
         <div class="wiz-opts" data-key="batiment" data-single>
@@ -773,69 +792,93 @@
         </div>
       </div>
 
-      <!-- STEP 2 : nature -->
-      <div class="wiz-step" data-step="1">
-        <div class="wiz-q">Nature du projet&nbsp;?</div>
-        <div class="wiz-hint">Construction neuve ou rénovation.</div>
+      <!-- STEP 2 : état (neuf / réno) -->
+      <div class="wiz-step" data-step="2">
+        <div class="wiz-q">Neuf ou rénovation&nbsp;?</div>
+        <div class="wiz-hint">L'état actuel de votre projet.</div>
         <div class="wiz-opts" data-key="nature" data-single>
-          <button type="button" class="wiz-opt" data-val="Construction neuve"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 44V24L32 10l20 14v20z"/><path d="M6 26 32 8l26 18"/><path d="M43 6v10M38 11h10"/></svg></span><span class="ol">Construction neuve</span><span class="od">RE2020</span></button>
+          <button type="button" class="wiz-opt" data-val="Construction neuve"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 44V24L32 10l20 14v20z"/><path d="M6 26 32 8l26 18"/><path d="M43 6v10M38 11h10"/></svg></span><span class="ol">Neuf</span><span class="od">Construction · RE2020</span></button>
           <button type="button" class="wiz-opt" data-val="Rénovation"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 44V24L32 10l20 14v20z"/><path d="M6 26 32 8l26 18"/><path d="M26 38l6-6m0 0a5 5 0 0 1 7-7l-4 4 3 3 4-4a5 5 0 0 1-7 7z"/></svg></span><span class="ol">Rénovation</span><span class="od">Existant</span></button>
         </div>
       </div>
 
-      <!-- STEP 3 : prestations (multi) -->
-      <div class="wiz-step" data-step="2">
-        <div class="wiz-q">Quelles prestations&nbsp;?</div>
-        <div class="wiz-hint">Plusieurs choix possibles. Pas sûr&nbsp;? Choisissez « Je ne sais pas encore » — on vous conseille.</div>
-        <div class="wiz-opts wiz-opts-sm" data-key="prestations" data-multi>
-          <button type="button" class="wiz-opt" data-nat="neuf" data-val="Attestation Bbio (RE2020)" data-price="350"><span class="ol">Attestation Bbio</span><span class="od">RE2020 · dépôt du permis</span></button>
-          <button type="button" class="wiz-opt" data-val="Étude de ventilation" data-price="300"><span class="ol">Étude de ventilation</span><span class="od">VMC · débits</span></button>
-          <button type="button" class="wiz-opt" data-nat="neuf" data-val="Attestation Cep (RE2020)" data-price="400"><span class="ol">Attestation Cep</span><span class="od">RE2020 · achèvement</span></button>
-          <button type="button" class="wiz-opt" data-nat="reno" data-val="Audit énergétique" data-price="600"><span class="ol">Audit énergétique</span><span class="od">Rénovation</span></button>
-          <button type="button" class="wiz-opt" data-nat="reno" data-val="Bilan thermique de l'existant" data-price="400"><span class="ol">Bilan thermique</span><span class="od">Existant · déperditions</span></button>
-          <button type="button" class="wiz-opt" data-val="Analyse du cycle de vie (ACV)" data-price="450"><span class="ol">ACV</span><span class="od">Carbone</span></button>
-          <button type="button" class="wiz-opt" data-val="Dimensionnement des fluides" data-price="550"><span class="ol">Dimensionnement fluides</span><span class="od">CVC · plomberie</span></button>
-          <button type="button" class="wiz-opt" data-val="Plans &amp; schémas 2D" data-price="350"><span class="ol">Plans &amp; schémas 2D</span><span class="od">Réseaux fluides</span></button>
-          <button type="button" class="wiz-opt wiz-opt-unsure" data-val="À définir avec BETTHER" data-price="0" data-unsure><span class="ol">Je ne sais pas encore</span><span class="od">On vous conseille</span></button>
-        </div>
-      </div>
-
-      <!-- STEP 4 : surface -->
+      <!-- STEP 3 : surface -->
       <div class="wiz-step" data-step="3">
         <div class="wiz-q">Surface du bâtiment&nbsp;?</div>
         <div class="wiz-hint">Une estimation suffit.</div>
         <div class="wiz-opts" data-key="surface" data-single>
-          <button type="button" class="wiz-opt" data-val="&lt; 100 m²" data-mult="1"><span class="ol">Moins de 100 m²</span></button>
-          <button type="button" class="wiz-opt" data-val="100–200 m²" data-mult="1.3"><span class="ol">100 – 200 m²</span></button>
-          <button type="button" class="wiz-opt" data-val="200–500 m²" data-mult="1.8"><span class="ol">200 – 500 m²</span></button>
-          <button type="button" class="wiz-opt" data-val="&gt; 500 m²" data-mult="2.5"><span class="ol">Plus de 500 m²</span></button>
+          <button type="button" class="wiz-opt" data-val="&lt; 100 m²"><span class="ol">Moins de 100 m²</span></button>
+          <button type="button" class="wiz-opt" data-val="100–200 m²"><span class="ol">100 – 200 m²</span></button>
+          <button type="button" class="wiz-opt" data-val="200–500 m²"><span class="ol">200 – 500 m²</span></button>
+          <button type="button" class="wiz-opt" data-val="&gt; 500 m²"><span class="ol">Plus de 500 m²</span></button>
         </div>
       </div>
 
-      <!-- STEP 5 : coordonnées -->
+      <!-- STEP 4 : localisation -->
       <div class="wiz-step" data-step="4">
-        <div class="wiz-q">Où vous envoyer l'estimation&nbsp;?</div>
-        <div class="wiz-hint">Nous revenons vers vous avec le devis détaillé.</div>
+        <div class="wiz-q">Où se situe le projet&nbsp;?</div>
+        <div class="wiz-hint">Ville ou code postal.</div>
         <div class="wiz-fields">
-          <div class="field"><label for="wizNom">Nom</label><input id="wizNom" type="text" placeholder="Votre nom" autocomplete="name"></div>
-          <div class="field"><label for="wizTel">Téléphone</label><input id="wizTel" type="tel" placeholder="06 00 00 00 00" autocomplete="tel"></div>
+          <div class="field field-full"><label for="wizLoc">Localisation</label><input id="wizLoc" type="text" placeholder="Ex. Reims (51100)" autocomplete="address-level2"></div>
         </div>
+      </div>
+
+      <!-- STEP 5 : niveaux -->
+      <div class="wiz-step" data-step="5">
+        <div class="wiz-q">Combien de niveaux&nbsp;?</div>
+        <div class="wiz-hint">Nombre d'étages du bâtiment.</div>
+        <div class="wiz-opts" data-key="niveaux" data-single>
+          <button type="button" class="wiz-opt" data-val="Plain-pied"><span class="ol">Plain-pied</span><span class="od">1 niveau</span></button>
+          <button type="button" class="wiz-opt" data-val="R+1"><span class="ol">R+1</span><span class="od">2 niveaux</span></button>
+          <button type="button" class="wiz-opt" data-val="R+2"><span class="ol">R+2</span><span class="od">3 niveaux</span></button>
+          <button type="button" class="wiz-opt" data-val="R+3 et plus"><span class="ol">R+3 et plus</span><span class="od">4 niveaux et +</span></button>
+        </div>
+      </div>
+
+      <!-- STEP 6 : complexité -->
+      <div class="wiz-step" data-step="6">
+        <div class="wiz-q">Le bâtiment est plutôt…&nbsp;?</div>
+        <div class="wiz-hint">Une estimation suffit — on affine ensuite.</div>
+        <div class="wiz-opts" data-key="complexite" data-single>
+          <button type="button" class="wiz-opt" data-val="Simple"><span class="ol">Simple</span><span class="od">Formes régulières</span></button>
+          <button type="button" class="wiz-opt" data-val="Plutôt simple"><span class="ol">Plutôt simple</span><span class="od">Quelques particularités</span></button>
+          <button type="button" class="wiz-opt" data-val="Complexe"><span class="ol">Complexe</span><span class="od">Volumes, décrochés…</span></button>
+        </div>
+      </div>
+
+      <!-- STEP 7 : documents -->
+      <div class="wiz-step" data-step="7">
+        <div class="wiz-q">Vos documents</div>
+        <div class="wiz-hint">Plans, photos, factures d'énergie… Optionnel, mais ça accélère votre devis.</div>
         <div class="wiz-attach">
           <label class="wiz-attach-label" for="wizFiles">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.5 12.5 21a5 5 0 0 1-7-7l8.5-8.5a3.5 3.5 0 0 1 5 5L10.5 18a2 2 0 0 1-3-3l7.5-7.5"/></svg>
-            Joindre vos plans / photos <span>— recommandé en rénovation</span>
+            Joindre plans / photos / factures <span>— recommandé</span>
           </label>
           <input id="wizFiles" type="file" accept="image/*,application/pdf" multiple>
           <div class="wiz-files-list" id="wizFilesList"></div>
         </div>
       </div>
 
+      <!-- STEP 8 : coordonnées -->
+      <div class="wiz-step" data-step="8">
+        <div class="wiz-q">Vos coordonnées</div>
+        <div class="wiz-hint">Nous revenons vers vous avec le devis détaillé.</div>
+        <div class="wiz-fields">
+          <div class="field"><label for="wizNom">Nom</label><input id="wizNom" type="text" placeholder="Votre nom" autocomplete="name"></div>
+          <div class="field"><label for="wizTel">Téléphone</label><input id="wizTel" type="tel" placeholder="06 00 00 00 00" autocomplete="tel"></div>
+          <div class="field"><label for="wizEmail">Email <span style="text-transform:none;letter-spacing:0;color:var(--ink-faint)">(facultatif)</span></label><input id="wizEmail" type="email" placeholder="vous@email.com" autocomplete="email"></div>
+          <div class="field"><label for="wizArchi">Architecte <span style="text-transform:none;letter-spacing:0;color:var(--ink-faint)">(éventuel)</span></label><input id="wizArchi" type="text" placeholder="Son nom, si vous en avez un"></div>
+          <div class="field field-full"><label for="wizComm">Commentaires</label><textarea id="wizComm" rows="3" placeholder="Précisez votre projet, vos délais, vos questions…"></textarea></div>
+        </div>
+      </div>
+
       <!-- RESULT -->
-      <div class="wiz-step" data-step="5">
+      <div class="wiz-step" data-step="9">
         <div class="wiz-result">
           <div class="rlabel">Devis gratuit</div>
           <div class="price" id="wizPrice">Réponse sous 24&nbsp;h</div>
-          <p class="rnote">Envoyez-nous votre demande et vos plans : nous établissons votre devis <b>gratuitement</b>, avec une réponse sous <b>24&nbsp;h</b>.</p>
+          <p class="rnote">Envoyez-nous votre demande et vos documents : nous établissons votre devis <b>gratuitement</b>, avec une réponse sous <b>24&nbsp;h</b>.</p>
           <div class="wiz-recap" id="wizRecap"></div>
           <div class="rbtns">
             <a class="btn btn-accent" id="wizSend" href="#">Envoyer ma demande</a>
@@ -1550,50 +1593,40 @@
     if(!wiz) return;
     var steps=[].slice.call(wiz.querySelectorAll('.wiz-step'));
     var cur=0;
-    var answers={batiment:null,nature:null,prestations:[],surface:null,surfaceMult:1};
+    var answers={prestations:[],batiment:null,nature:null,surface:null,niveaux:null,complexite:null,files:[]};
     var bar=document.getElementById('wizBar');
     var lbl=document.getElementById('wizStepLabel');
     var nameEl=document.getElementById('wizStepName');
     var backBtn=document.getElementById('wizBack');
     var nextBtn=document.getElementById('wizNext');
-    var stepNames=['Type de bâtiment','Nature du projet','Prestations','Surface','Coordonnées','Récapitulatif'];
-    var BMULT={Maison:1,Appartement:0.95,Immeuble:1.6,Tertiaire:1.8,ERP:2.0};
-
-    function nom(){return (document.getElementById('wizNom').value||'').trim();}
-    function tel(){return (document.getElementById('wizTel').value||'').trim();}
+    var stepNames=['Votre pack','Type de bâtiment','Neuf / rénovation','Surface','Localisation','Niveaux','Complexité','Documents','Coordonnées','Récapitulatif'];
+    function val(id){ var el=document.getElementById(id); return el?(el.value||'').trim():''; }
+    function nom(){return val('wizNom');}
+    function tel(){return val('wizTel');}
     function ready(){
-      if(cur===0)return !!answers.batiment;
-      if(cur===1)return !!answers.nature;
-      if(cur===2)return answers.prestations.length>0;
+      if(cur===0)return answers.prestations.length>0;
+      if(cur===1)return !!answers.batiment;
+      if(cur===2)return !!answers.nature;
       if(cur===3)return !!answers.surface;
-      if(cur===4)return !!(nom()&&tel());
+      if(cur===4)return !!val('wizLoc');
+      if(cur===5)return !!answers.niveaux;
+      if(cur===6)return !!answers.complexite;
+      if(cur===7)return true;
+      if(cur===8)return !!(nom()&&tel());
       return true;
     }
     function refreshNext(){ nextBtn.classList.toggle('ready',ready()); }
-    // n'affiche que les prestations correspondant à la nature du projet (neuf / réno)
-    function filterPrestations(){
-      var natKey = answers.nature==='Rénovation' ? 'reno' : (answers.nature==='Construction neuve' ? 'neuf' : null);
-      var opts=wiz.querySelector('.wiz-opts[data-key="prestations"]'); if(!opts) return;
-      opts.querySelectorAll('.wiz-opt').forEach(function(b){
-        var nat=b.getAttribute('data-nat');
-        var ok = !nat || !natKey || nat===natKey;
-        b.style.display = ok ? '' : 'none';
-        if(!ok) b.classList.remove('sel');
-      });
-      answers.prestations=[].slice.call(opts.querySelectorAll('.wiz-opt.sel')).map(function(x){return {val:x.getAttribute('data-val'),price:+(x.getAttribute('data-price')||0)};});
-    }
     function show(i){
       cur=i;
-      if(i===2) filterPrestations();
       steps.forEach(function(s){ s.classList.toggle('on', +s.getAttribute('data-step')===i); });
       bar.style.width=(i/(steps.length-1)*100).toFixed(0)+'%';
-      lbl.textContent = i<5 ? ('Étape '+(i+1)+' / 5') : 'Résultat';
+      lbl.textContent = i<9 ? ('Étape '+(i+1)+' / 9') : 'Résultat';
       nameEl.textContent=stepNames[i];
       backBtn.disabled = (i===0);
-      nextBtn.style.display = (i>=5)?'none':'inline-flex';
-      nextBtn.firstChild.nodeValue = (i===4)?'Valider ma demande ':'Continuer ';
+      nextBtn.style.display = (i>=9)?'none':'inline-flex';
+      nextBtn.firstChild.nodeValue = (i===8)?'Valider ma demande ':'Continuer ';
       refreshNext();
-      if(i===5) computeResult();
+      if(i===9) computeResult();
     }
 
     steps.forEach(function(step){
@@ -1615,16 +1648,13 @@
         } else {
           opts.querySelectorAll('.wiz-opt').forEach(function(x){x.classList.remove('sel');});
           b.classList.add('sel');
-          if(key==='batiment') answers.batiment=b.getAttribute('data-val');
-          if(key==='nature') answers.nature=b.getAttribute('data-val');
-          if(key==='surface'){ answers.surface=b.getAttribute('data-val'); answers.surfaceMult=+b.getAttribute('data-mult'); }
+          if(key) answers[key]=b.getAttribute('data-val');
           refreshNext();
-          setTimeout(function(){ if(cur<4) show(cur+1); },260);
+          setTimeout(function(){ if(cur<9) show(cur+1); },260);
         }
       });
     });
-    ['wizNom','wizTel'].forEach(function(id){var el=document.getElementById(id); if(el) el.addEventListener('input',refreshNext);});
-    answers.files=[];
+    ['wizNom','wizTel','wizLoc'].forEach(function(id){var el=document.getElementById(id); if(el) el.addEventListener('input',refreshNext);});
     var wizFiles=document.getElementById('wizFiles');
     if(wizFiles){
       wizFiles.addEventListener('change',function(){
@@ -1633,28 +1663,40 @@
         if(list) list.innerHTML=answers.files.map(function(n){return '<span>'+String(n).replace(/[<>&]/g,'')+'</span>';}).join('');
       });
     }
-    nextBtn.addEventListener('click',function(){ if(ready()) show(Math.min(cur+1,5)); });
+    nextBtn.addEventListener('click',function(){ if(ready()) show(Math.min(cur+1,9)); });
     backBtn.addEventListener('click',function(){ if(cur>0) show(cur-1); });
 
-    function r10(n){return Math.round(n/10)*10;}
-    function fr(n){return n.toLocaleString('fr-FR');}
     function computeResult(){
       var recapEl=document.getElementById('wizRecap');
-      var chips=[]; if(answers.batiment)chips.push(answers.batiment); if(answers.nature)chips.push(answers.nature); if(answers.surface)chips.push(answers.surface);
+      var chips=[];
       answers.prestations.forEach(function(p){chips.push(p.val);});
-      recapEl.innerHTML=chips.map(function(c){return '<span>'+c+'</span>';}).join('');
+      if(answers.batiment)chips.push(answers.batiment);
+      if(answers.nature)chips.push(answers.nature);
+      if(answers.surface)chips.push(answers.surface);
+      if(val('wizLoc'))chips.push(val('wizLoc'));
+      if(answers.niveaux)chips.push(answers.niveaux);
+      if(answers.complexite)chips.push(answers.complexite);
+      recapEl.innerHTML=chips.map(function(c){return '<span>'+String(c).replace(/[<>&]/g,'')+'</span>';}).join('');
       var msg='Bonjour BETTHER, demande de devis gratuit.'
-        +'\nBatiment : '+(answers.batiment||'-')
+        +'\nPrestations : '+(answers.prestations.map(function(p){return p.val;}).join(', ')||'-')
+        +'\nBâtiment : '+(answers.batiment||'-')
         +'\nProjet : '+(answers.nature||'-')
         +'\nSurface : '+(answers.surface||'-')
-        +'\nPrestations : '+(answers.prestations.map(function(p){return p.val;}).join(', ')||'-')
-        +'\nNom : '+(nom()||'-')+'\nTel : '+(tel()||'-')
-        +'\nPlans/photos : '+(answers.files&&answers.files.length?answers.files.join(', '):'à transmettre')
-        +'\nJe joins mes plans/photos pour établir le devis.';
+        +'\nLocalisation : '+(val('wizLoc')||'-')
+        +'\nNiveaux : '+(answers.niveaux||'-')
+        +'\nComplexité : '+(answers.complexite||'-')
+        +'\nNom : '+(nom()||'-')
+        +'\nTel : '+(tel()||'-')
+        +'\nEmail : '+(val('wizEmail')||'-')
+        +'\nArchitecte : '+(val('wizArchi')||'-')
+        +'\nCommentaires : '+(val('wizComm')||'-')
+        +'\nDocuments : '+(answers.files&&answers.files.length?answers.files.join(', '):'à transmettre')
+        +'\nJe joins mes plans/photos/factures pour établir le devis.';
       document.getElementById('wizSend').setAttribute('href','sms:+33618137645?body='+encodeURIComponent(msg));
     }
     show(0);
   })();
+
 </script>
 
 <script>
