@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BETTHER">
 <meta property="og:title" content="BETTHER — Bureau d.étude thermique">
-<meta property="og:description" content="Construction & rénovation : RE2020, audits énergétiques, dimensionnement des fluides.">
+<meta property="og:description" content="Construction & rénovation : RE2020, audits énergétiques, dimensionnement des fluides. De l.isolation à la production solaire.">
 <meta property="og:url" content="https://betther.tech/">
 <meta property="og:image" content="https://betther.tech/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -491,6 +491,28 @@
   .wiz-fields textarea{width:100%;box-sizing:border-box;font-family:var(--font-body);font-size:15.5px;color:var(--ink);background:var(--ground);border:1px solid var(--line-strong);border-radius:10px;padding:12px 14px;resize:vertical;min-height:82px}
   .wiz-fields textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
   .wiz-fields .field-full{grid-column:1 / -1}
+  .wiz-fields select{width:100%;box-sizing:border-box;font-family:var(--font-body);font-size:15.5px;color:var(--ink);background:var(--ground);border:1px solid var(--line-strong);border-radius:10px;padding:12px 14px;cursor:pointer}
+  .wiz-fields select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+  .wiz-subfield{margin-top:18px;max-width:280px}
+  .wiz-subfield label{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:7px}
+  .wiz-subfield input{width:100%;box-sizing:border-box;font-family:var(--font-body);font-size:15.5px;color:var(--ink);background:var(--ground);border:1px solid var(--line-strong);border-radius:10px;padding:12px 14px}
+  .wiz-subfield input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+  .wiz-note-mini{margin-top:16px;font-size:13px;color:var(--ink-soft);line-height:1.5}
+  .wiz-suggest{margin-top:14px;font-size:13.5px;color:var(--accent-ink);background:color-mix(in srgb,var(--accent) 8%,transparent);border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);border-radius:10px;padding:10px 14px}
+  .wiz-checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;margin-top:24px}
+  .wiz-check{display:flex;align-items:flex-start;gap:10px;border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;cursor:pointer;font-size:14.5px;color:var(--ink);background:var(--ground);transition:border-color .2s ease;text-align:left}
+  .wiz-check:hover{border-color:var(--line-strong)}
+  .wiz-check input{margin-top:1px;accent-color:var(--accent);width:17px;height:17px;flex:none}
+  .wiz-check span b{color:var(--accent-ink)}
+  .wiz-check span i{display:block;font-style:normal;font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+  .wiz-check-inline{border:0;padding:0;background:none}
+  .wiz-opt-badge{position:relative;overflow:visible}
+  .badge-fq{position:absolute;top:-9px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--accent);padding:3px 9px;border-radius:100px}
+  .wiz-options{margin:22px 0;display:grid;gap:10px}
+  .wiz-opt-title{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+  .wiz-includes{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center}
+  .wiz-includes .inc-t{width:100%;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:2px}
+  .wiz-includes span{font-size:12.5px;color:var(--ink-soft);background:var(--ground);border:1px solid var(--line);border-radius:100px;padding:4px 11px}
   .wiz-attach{margin-top:18px}
   .wiz-attach-label{display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
   .wiz-attach-label span{text-transform:none;letter-spacing:0;color:var(--accent-ink);font-size:11px}
@@ -759,67 +781,71 @@
         <p>Répondez à quelques questions illustrées — pas besoin d'expliquer votre projet. Devis gratuit, réponse sous 24&nbsp;h après réception de vos plans.</p>
       </div>
       <div class="wiz-top">
-        <span class="wiz-step-label" id="wizStepLabel">Étape 1 / 9</span>
+        <span class="wiz-step-label" id="wizStepLabel">Étape 1 / 10</span>
         <span class="wiz-step-label" id="wizStepName">Votre pack</span>
       </div>
       <div class="wiz-progress"><i id="wizBar"></i></div>
 
-      <!-- STEP 0 : pack / prestations (multi) -->
+      <!-- STEP 0 : pack -->
       <div class="wiz-step on" data-step="0">
-        <div class="wiz-q">Votre pack de prestations&nbsp;?</div>
-        <div class="wiz-hint">Plusieurs choix possibles. Pas sûr&nbsp;? Choisissez « Je ne sais pas encore » — on vous conseille.</div>
-        <div class="wiz-opts wiz-opts-sm" data-key="prestations" data-multi>
-          <button type="button" class="wiz-opt" data-val="Attestation Bbio (RE2020)" data-price="350"><span class="ol">Attestation Bbio</span><span class="od">RE2020 · dépôt du permis</span></button>
-          <button type="button" class="wiz-opt" data-val="Étude de ventilation" data-price="300"><span class="ol">Étude de ventilation</span><span class="od">VMC · débits</span></button>
-          <button type="button" class="wiz-opt" data-val="Audit énergétique" data-price="600"><span class="ol">Audit énergétique</span><span class="od">Rénovation</span></button>
-          <button type="button" class="wiz-opt" data-val="Bilan thermique de l'existant" data-price="400"><span class="ol">Bilan thermique</span><span class="od">Existant · déperditions</span></button>
-          <button type="button" class="wiz-opt" data-val="Analyse du cycle de vie (ACV)" data-price="450"><span class="ol">ACV</span><span class="od">Carbone</span></button>
-          <button type="button" class="wiz-opt" data-val="Dimensionnement des fluides" data-price="550"><span class="ol">Dimensionnement fluides</span><span class="od">CVC · plomberie</span></button>
-          <button type="button" class="wiz-opt" data-val="Plans &amp; schémas 2D" data-price="350"><span class="ol">Plans &amp; schémas 2D</span><span class="od">Réseaux fluides</span></button>
-          <button type="button" class="wiz-opt wiz-opt-unsure" data-val="À définir avec BETTHER" data-price="0" data-unsure><span class="ol">Je ne sais pas encore</span><span class="od">On vous conseille</span></button>
+        <div class="wiz-q">Quelle étude souhaitez-vous réaliser&nbsp;?</div>
+        <div class="wiz-hint">Choisissez votre besoin. Votre tarif est calculé aux étapes suivantes selon les caractéristiques du projet.</div>
+        <div class="wiz-opts wiz-opts-sm" data-key="pack" data-single>
+          <button type="button" class="wiz-opt" data-pack="re2020-permis" data-val="RE2020 Permis"><span class="ol">RE2020 Permis</span><span class="od">Bbio · DH · Cep · attestation PC · notice</span></button>
+          <button type="button" class="wiz-opt" data-pack="re2020-projet" data-val="RE2020 Projet"><span class="ol">RE2020 Projet</span><span class="od">Permis + calculs détaillés + systèmes</span></button>
+          <button type="button" class="wiz-opt" data-pack="re2020-complete" data-val="RE2020 Complète"><span class="ol">RE2020 Complète</span><span class="od">Projet + ACV · Ic énergie · Ic construction</span></button>
+          <button type="button" class="wiz-opt" data-pack="fluides" data-val="Étude Fluides complète"><span class="ol">Étude Fluides complète</span><span class="od">Chauffage · PAC/clim · ECS · VMC · plans</span></button>
+          <button type="button" class="wiz-opt" data-pack="bet-complet" data-val="BET Complet"><span class="ol">BET Complet</span><span class="od">RE2020 complète + fluides + plans</span></button>
+          <button type="button" class="wiz-opt" data-pack="bilan-reno" data-val="Bilan thermique rénovation"><span class="ol">Bilan thermique</span><span class="od">Enveloppe · déperditions · préconisations</span></button>
+          <button type="button" class="wiz-opt" data-pack="audit" data-val="Audit énergétique volontaire"><span class="ol">Audit énergétique</span><span class="od">Visite · état initial · scénarios · rapport</span></button>
+          <button type="button" class="wiz-opt" data-pack="reno-complete" data-val="Rénovation complète"><span class="ol">Rénovation complète</span><span class="od">Bilan · préconisations · fluides · plans</span></button>
         </div>
+        <p class="wiz-note-mini">Tarif personnalisé selon votre projet — calculé à l'étape suivante.</p>
       </div>
 
       <!-- STEP 1 : bâtiment -->
       <div class="wiz-step" data-step="1">
-        <div class="wiz-q">Quel type de bâtiment&nbsp;?</div>
-        <div class="wiz-hint">Sélectionnez ce qui correspond à votre projet.</div>
+        <div class="wiz-q">Quel bâtiment concerne votre projet&nbsp;?</div>
+        <div class="wiz-hint">Sélectionnez ce qui correspond.</div>
         <div class="wiz-opts" data-key="batiment" data-single>
-          <button type="button" class="wiz-opt" data-val="Maison"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M10 44V23L32 7l22 16v21z"/><path d="M4 25 32 5l28 20"/><rect x="27" y="31" width="10" height="13"/><rect x="15" y="27" width="7" height="7"/><rect x="42" y="27" width="7" height="7"/></svg></span><span class="ol">Maison</span><span class="od">Individuelle</span></button>
-          <button type="button" class="wiz-opt" data-val="Appartement"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="14" y="8" width="36" height="36"/><path d="M14 20h36M14 32h36M32 8v36"/><rect x="18" y="24" width="10" height="6" fill="currentColor" stroke="none" opacity=".25"/></svg></span><span class="ol">Appartement</span><span class="od">Logement</span></button>
-          <button type="button" class="wiz-opt" data-val="Immeuble"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="18" y="4" width="28" height="40"/><path d="M24 10h4M36 10h4M24 18h4M36 18h4M24 26h4M36 26h4M24 34h4M36 34h4"/></svg></span><span class="ol">Immeuble</span><span class="od">Collectif</span></button>
-          <button type="button" class="wiz-opt" data-val="Tertiaire"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="6" y="14" width="52" height="30"/><path d="M6 24h52M6 34h52M18 14v30M32 14v30M46 14v30"/></svg></span><span class="ol">Tertiaire</span><span class="od">Bureau · commerce</span></button>
+          <button type="button" class="wiz-opt" data-val="Maison individuelle"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M10 44V23L32 7l22 16v21z"/><path d="M4 25 32 5l28 20"/><rect x="27" y="31" width="10" height="13"/><rect x="15" y="27" width="7" height="7"/><rect x="42" y="27" width="7" height="7"/></svg></span><span class="ol">Maison individuelle</span><span class="od">Seule ou accolée</span></button>
+          <button type="button" class="wiz-opt" data-val="Appartement"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="14" y="8" width="36" height="36"/><path d="M14 20h36M14 32h36M32 8v36"/><rect x="18" y="24" width="10" height="6" fill="currentColor" stroke="none" opacity=".25"/></svg></span><span class="ol">Appartement</span><span class="od">Logement individuel</span></button>
+          <button type="button" class="wiz-opt" data-val="Immeuble collectif"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="18" y="4" width="28" height="40"/><path d="M24 10h4M36 10h4M24 18h4M36 18h4M24 26h4M36 26h4M24 34h4M36 34h4"/></svg></span><span class="ol">Immeuble collectif</span><span class="od">Plusieurs logements</span></button>
+          <button type="button" class="wiz-opt" data-val="Tertiaire"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="6" y="14" width="52" height="30"/><path d="M6 24h52M6 34h52M18 14v30M32 14v30M46 14v30"/></svg></span><span class="ol">Tertiaire</span><span class="od">Bureaux · commerces · ERP</span></button>
+        </div>
+        <div class="wiz-subfield" id="wizLgtWrap" hidden>
+          <label for="wizLgt">Nombre de logements</label>
+          <input id="wizLgt" type="number" min="2" step="1" inputmode="numeric" placeholder="Ex. 8">
         </div>
       </div>
 
-      <!-- STEP 2 : état (neuf / réno) -->
+      <!-- STEP 2 : état -->
       <div class="wiz-step" data-step="2">
-        <div class="wiz-q">Neuf ou rénovation&nbsp;?</div>
-        <div class="wiz-hint">L'état actuel de votre projet.</div>
+        <div class="wiz-q">Votre projet concerne&nbsp;:</div>
+        <div class="wiz-hint">L'état actuel du bâtiment.</div>
         <div class="wiz-opts" data-key="nature" data-single>
-          <button type="button" class="wiz-opt" data-val="Construction neuve"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 44V24L32 10l20 14v20z"/><path d="M6 26 32 8l26 18"/><path d="M43 6v10M38 11h10"/></svg></span><span class="ol">Neuf</span><span class="od">Construction · RE2020</span></button>
-          <button type="button" class="wiz-opt" data-val="Rénovation"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 44V24L32 10l20 14v20z"/><path d="M6 26 32 8l26 18"/><path d="M26 38l6-6m0 0a5 5 0 0 1 7-7l-4 4 3 3 4-4a5 5 0 0 1-7 7z"/></svg></span><span class="ol">Rénovation</span><span class="od">Existant</span></button>
+          <button type="button" class="wiz-opt" data-nat="neuf" data-val="Construction neuve"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 44V24L32 10l20 14v20z"/><path d="M6 26 32 8l26 18"/><path d="M43 6v10M38 11h10"/></svg></span><span class="ol">Construction neuve</span><span class="od">RE2020</span></button>
+          <button type="button" class="wiz-opt" data-nat="reno" data-val="Rénovation"><span class="illu"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 44V24L32 10l20 14v20z"/><path d="M6 26 32 8l26 18"/><path d="M26 38l6-6m0 0a5 5 0 0 1 7-7l-4 4 3 3 4-4a5 5 0 0 1-7 7z"/></svg></span><span class="ol">Rénovation</span><span class="od">Bâtiment existant</span></button>
         </div>
       </div>
 
       <!-- STEP 3 : surface -->
       <div class="wiz-step" data-step="3">
-        <div class="wiz-q">Surface du bâtiment&nbsp;?</div>
-        <div class="wiz-hint">Une estimation suffit.</div>
-        <div class="wiz-opts" data-key="surface" data-single>
-          <button type="button" class="wiz-opt" data-val="&lt; 100 m²"><span class="ol">Moins de 100 m²</span></button>
-          <button type="button" class="wiz-opt" data-val="100–200 m²"><span class="ol">100 – 200 m²</span></button>
-          <button type="button" class="wiz-opt" data-val="200–500 m²"><span class="ol">200 – 500 m²</span></button>
-          <button type="button" class="wiz-opt" data-val="&gt; 500 m²"><span class="ol">Plus de 500 m²</span></button>
+        <div class="wiz-q">Surface concernée&nbsp;?</div>
+        <div class="wiz-hint">Surface totale du projet, en m².</div>
+        <div class="wiz-fields">
+          <div class="field field-full"><label for="wizSurf">Surface (m²)</label><input id="wizSurf" type="number" min="1" step="1" inputmode="numeric" placeholder="Ex. 138"></div>
         </div>
       </div>
 
       <!-- STEP 4 : localisation -->
       <div class="wiz-step" data-step="4">
-        <div class="wiz-q">Où se situe le projet&nbsp;?</div>
-        <div class="wiz-hint">Ville ou code postal.</div>
+        <div class="wiz-q">Où se situe votre projet&nbsp;?</div>
+        <div class="wiz-hint">Utile pour organiser une éventuelle visite.</div>
         <div class="wiz-fields">
-          <div class="field field-full"><label for="wizLoc">Localisation</label><input id="wizLoc" type="text" placeholder="Ex. Reims (51100)" autocomplete="address-level2"></div>
+          <div class="field field-full"><label for="wizAdr">Adresse <span style="text-transform:none;letter-spacing:0;color:var(--ink-faint)">(facultatif)</span></label><input id="wizAdr" type="text" placeholder="N° et rue" autocomplete="street-address"></div>
+          <div class="field"><label for="wizCP">Code postal</label><input id="wizCP" type="text" inputmode="numeric" placeholder="51100" autocomplete="postal-code"></div>
+          <div class="field"><label for="wizVille">Ville</label><input id="wizVille" type="text" placeholder="Reims" autocomplete="address-level2"></div>
         </div>
       </div>
 
@@ -828,63 +854,117 @@
         <div class="wiz-q">Combien de niveaux&nbsp;?</div>
         <div class="wiz-hint">Nombre d'étages du bâtiment.</div>
         <div class="wiz-opts" data-key="niveaux" data-single>
-          <button type="button" class="wiz-opt" data-val="Plain-pied"><span class="ol">Plain-pied</span><span class="od">1 niveau</span></button>
-          <button type="button" class="wiz-opt" data-val="R+1"><span class="ol">R+1</span><span class="od">2 niveaux</span></button>
-          <button type="button" class="wiz-opt" data-val="R+2"><span class="ol">R+2</span><span class="od">3 niveaux</span></button>
-          <button type="button" class="wiz-opt" data-val="R+3 et plus"><span class="ol">R+3 et plus</span><span class="od">4 niveaux et +</span></button>
+          <button type="button" class="wiz-opt" data-val="1 niveau"><span class="ol">1 niveau</span><span class="od">Plain-pied</span></button>
+          <button type="button" class="wiz-opt" data-val="2 niveaux"><span class="ol">2 niveaux</span><span class="od">R+1</span></button>
+          <button type="button" class="wiz-opt" data-val="3 niveaux"><span class="ol">3 niveaux</span><span class="od">R+2</span></button>
+          <button type="button" class="wiz-opt" data-val="4 niveaux ou +"><span class="ol">4 niveaux ou +</span><span class="od">R+3 et plus</span></button>
         </div>
       </div>
 
       <!-- STEP 6 : complexité -->
       <div class="wiz-step" data-step="6">
-        <div class="wiz-q">Le bâtiment est plutôt…&nbsp;?</div>
-        <div class="wiz-hint">Une estimation suffit — on affine ensuite.</div>
+        <div class="wiz-q">Quelle configuration correspond le mieux&nbsp;?</div>
+        <div class="wiz-hint">La complexité correspond à la géométrie et à la configuration thermique du bâtiment, pas à son niveau de finition.</div>
         <div class="wiz-opts" data-key="complexite" data-single>
-          <button type="button" class="wiz-opt" data-val="Simple"><span class="ol">Simple</span><span class="od">Formes régulières</span></button>
-          <button type="button" class="wiz-opt" data-val="Plutôt simple"><span class="ol">Plutôt simple</span><span class="od">Quelques particularités</span></button>
-          <button type="button" class="wiz-opt" data-val="Complexe"><span class="ol">Complexe</span><span class="od">Volumes, décrochés…</span></button>
+          <button type="button" class="wiz-opt" data-val="Simple"><span class="ol">Simple</span><span class="od">Maison cube / rectangle classique, peu de décrochés</span></button>
+          <button type="button" class="wiz-opt wiz-opt-badge" data-val="Standard"><span class="badge-fq">Le plus fréquent</span><span class="ol">Standard</span><span class="od">Quelques décrochés, garage, sous-sol, baies vitrées</span></button>
+          <button type="button" class="wiz-opt" data-val="Complexe"><span class="ol">Complexe</span><span class="od">Architecture atypique, nombreux volumes, systèmes multiples</span></button>
         </div>
+        <p class="wiz-note-mini">Vous hésitez&nbsp;? Sélectionnez « Standard ». La complexité sera vérifiée à réception des plans avant le démarrage de l'étude.</p>
       </div>
 
-      <!-- STEP 7 : documents -->
+      <!-- STEP 7 : caractéristiques techniques -->
       <div class="wiz-step" data-step="7">
-        <div class="wiz-q">Vos documents</div>
-        <div class="wiz-hint">Plans, photos, factures d'énergie… Optionnel, mais ça accélère votre devis.</div>
+        <div class="wiz-q">Votre bâtiment comporte-t-il&nbsp;?</div>
+        <div class="wiz-hint">Cochez ce qui s'applique — ça nous aide à cadrer l'étude (facultatif).</div>
+        <div class="wiz-checks" id="wizCarac">
+          <label class="wiz-check"><input type="checkbox" value="Sous-sol"><span>Sous-sol</span></label>
+          <label class="wiz-check"><input type="checkbox" value="Garage intégré"><span>Garage intégré</span></label>
+          <label class="wiz-check"><input type="checkbox" value="Combles aménagés"><span>Combles aménagés</span></label>
+          <label class="wiz-check"><input type="checkbox" value="Extension"><span>Extension</span></label>
+          <label class="wiz-check"><input type="checkbox" value="Plusieurs bâtiments"><span>Plusieurs bâtiments</span></label>
+          <label class="wiz-check"><input type="checkbox" value="Plusieurs systèmes de chauffage"><span>Plusieurs chauffages</span></label>
+          <label class="wiz-check"><input type="checkbox" value="Climatisation"><span>Climatisation</span></label>
+          <label class="wiz-check"><input type="checkbox" value="Plancher chauffant"><span>Plancher chauffant</span></label>
+          <label class="wiz-check"><input type="checkbox" value="Grandes surfaces vitrées"><span>Grandes surfaces vitrées</span></label>
+          <label class="wiz-check"><input type="checkbox" value="Autre particularité"><span>Autre particularité</span></label>
+        </div>
+        <p class="wiz-suggest" id="wizSuggest" hidden></p>
+      </div>
+
+      <!-- STEP 8 : documents -->
+      <div class="wiz-step" data-step="8">
+        <div class="wiz-q">Ajoutez vos documents</div>
+        <div class="wiz-hint">Plans (PDF, DWG/DXF), photos, DPE, factures, devis, fiches techniques… Optionnel — vous pourrez compléter après.</div>
         <div class="wiz-attach">
           <label class="wiz-attach-label" for="wizFiles">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.5 12.5 21a5 5 0 0 1-7-7l8.5-8.5a3.5 3.5 0 0 1 5 5L10.5 18a2 2 0 0 1-3-3l7.5-7.5"/></svg>
-            Joindre plans / photos / factures <span>— recommandé</span>
+            Glisser / choisir vos fichiers <span>— plans, photos, factures</span>
           </label>
-          <input id="wizFiles" type="file" accept="image/*,application/pdf" multiple>
+          <input id="wizFiles" type="file" accept="image/*,application/pdf,.dwg,.dxf" multiple>
           <div class="wiz-files-list" id="wizFilesList"></div>
         </div>
+        <p class="wiz-note-mini">Le délai d'étude commence à réception des éléments nécessaires à sa réalisation.</p>
       </div>
 
-      <!-- STEP 8 : coordonnées -->
-      <div class="wiz-step" data-step="8">
-        <div class="wiz-q">Vos coordonnées</div>
+      <!-- STEP 9 : coordonnées -->
+      <div class="wiz-step" data-step="9">
+        <div class="wiz-q">Parlez-nous de vous</div>
         <div class="wiz-hint">Nous revenons vers vous avec le devis détaillé.</div>
         <div class="wiz-fields">
-          <div class="field"><label for="wizNom">Nom</label><input id="wizNom" type="text" placeholder="Votre nom" autocomplete="name"></div>
+          <div class="field"><label for="wizPrenom">Prénom</label><input id="wizPrenom" type="text" placeholder="Votre prénom" autocomplete="given-name"></div>
+          <div class="field"><label for="wizNom">Nom</label><input id="wizNom" type="text" placeholder="Votre nom" autocomplete="family-name"></div>
           <div class="field"><label for="wizTel">Téléphone</label><input id="wizTel" type="tel" placeholder="06 00 00 00 00" autocomplete="tel"></div>
-          <div class="field"><label for="wizEmail">Email <span style="text-transform:none;letter-spacing:0;color:var(--ink-faint)">(facultatif)</span></label><input id="wizEmail" type="email" placeholder="vous@email.com" autocomplete="email"></div>
-          <div class="field"><label for="wizArchi">Architecte <span style="text-transform:none;letter-spacing:0;color:var(--ink-faint)">(éventuel)</span></label><input id="wizArchi" type="text" placeholder="Son nom, si vous en avez un"></div>
-          <div class="field field-full"><label for="wizComm">Commentaires</label><textarea id="wizComm" rows="3" placeholder="Précisez votre projet, vos délais, vos questions…"></textarea></div>
+          <div class="field"><label for="wizEmail">Email</label><input id="wizEmail" type="email" placeholder="vous@email.com" autocomplete="email"></div>
+          <div class="field field-full"><label for="wizProfil">Vous êtes</label>
+            <select id="wizProfil">
+              <option value="Particulier">Particulier</option>
+              <option value="Architecte">Architecte</option>
+              <option value="Maître d'œuvre">Maître d'œuvre</option>
+              <option value="Constructeur">Constructeur</option>
+              <option value="Entreprise">Entreprise</option>
+              <option value="Promoteur">Promoteur</option>
+              <option value="Autre professionnel">Autre professionnel</option>
+            </select>
+          </div>
+          <div class="field field-full"><label for="wizArchiSuivi">Projet suivi par un architecte / maître d'œuvre&nbsp;?</label>
+            <select id="wizArchiSuivi">
+              <option value="Non">Non</option>
+              <option value="Oui">Oui</option>
+              <option value="Pas encore">Pas encore</option>
+            </select>
+          </div>
+          <div class="field field-full" id="wizArchiWrap" hidden>
+            <label for="wizArchi">Architecte / agence</label>
+            <input id="wizArchi" type="text" placeholder="Nom, email ou téléphone de l'architecte">
+            <label class="wiz-check wiz-check-inline" style="margin-top:10px"><input type="checkbox" id="wizArchiAuth"><span>J'autorise BET·THER à échanger directement avec mon architecte / maître d'œuvre au sujet de cette étude.</span></label>
+          </div>
+          <div class="field field-full"><label for="wizComm">Informations complémentaires</label><textarea id="wizComm" rows="3" placeholder="Particularités du projet, équipements envisagés, délais…"></textarea></div>
         </div>
       </div>
 
-      <!-- RESULT -->
-      <div class="wiz-step" data-step="9">
+      <!-- RESULT : tarif + options + récap -->
+      <div class="wiz-step" data-step="10">
         <div class="wiz-result">
-          <div class="rlabel">Devis gratuit</div>
-          <div class="price" id="wizPrice">Réponse sous 24&nbsp;h</div>
-          <p class="rnote">Envoyez-nous votre demande et vos documents : nous établissons votre devis <b>gratuitement</b>, avec une réponse sous <b>24&nbsp;h</b>.</p>
+          <div class="rlabel">Votre estimation</div>
+          <div class="price" id="wizPrice">—</div>
+          <p class="rnote" id="wizPriceNote">Tarif estimé selon les caractéristiques de votre projet.</p>
+
+          <div class="wiz-options" id="wizOptions">
+            <div class="wiz-opt-title">Options complémentaires</div>
+            <label class="wiz-check"><input type="checkbox" id="optPrio"><span>Traitement prioritaire 48&nbsp;h <b>+25&nbsp;%</b><i>Sous réserve de disponibilité et d'un dossier complet.</i></span></label>
+            <label class="wiz-check" id="optVisitWrap"><input type="checkbox" id="optVisit"><span>Visite sur site <b>+120&nbsp;€</b> <i>+ déplacement éventuel.</i></span></label>
+            <label class="wiz-check"><input type="checkbox" id="optVar"><span>Variante énergétique supplémentaire <b>+120&nbsp;€</b><i>Ex. PAC air/eau vs poêle + ballon.</i></span></label>
+          </div>
+
           <div class="wiz-recap" id="wizRecap"></div>
+          <div class="wiz-includes" id="wizIncludes"></div>
+
           <div class="rbtns">
-            <a class="btn btn-accent" id="wizSend" href="#">Envoyer ma demande</a>
+            <a class="btn btn-accent" id="wizSend" href="#">Recevoir mon devis</a>
             <a class="btn btn-ghost" href="tel:+33618137645" style="border-color:var(--line-strong)">Appeler</a>
           </div>
-          <p class="wiz-disclaimer">Le tarif est établi sur mesure d'après vos plans — devis sans engagement.</p>
+          <p class="wiz-disclaimer" id="wizDisclaimer">Estimation indicative, confirmée après réception de vos documents — devis sans engagement. TVA non applicable, art. 293 B du CGI.</p>
         </div>
       </div>
 
@@ -1587,115 +1667,252 @@
   window.addEventListener('load',update);
   update();
 
-  /* ---- Wizard devis ---- */
+  /* ---- Wizard devis (moteur de tarification) ---- */
   (function(){
     var wiz=document.getElementById('wizard');
     if(!wiz) return;
     var steps=[].slice.call(wiz.querySelectorAll('.wiz-step'));
     var cur=0;
-    var answers={prestations:[],batiment:null,nature:null,surface:null,niveaux:null,complexite:null,files:[]};
+    var answers={pack:null,batiment:null,nature:null,niveaux:null,complexite:null,files:[],carac:[],deplacement:0,deplacementSurDevis:false};
     var bar=document.getElementById('wizBar');
     var lbl=document.getElementById('wizStepLabel');
     var nameEl=document.getElementById('wizStepName');
     var backBtn=document.getElementById('wizBack');
     var nextBtn=document.getElementById('wizNext');
-    var stepNames=['Votre pack','Type de bâtiment','Neuf / rénovation','Surface','Localisation','Niveaux','Complexité','Documents','Coordonnées','Récapitulatif'];
+    var stepNames=['Votre pack','Bâtiment','Neuf / rénovation','Surface','Localisation','Niveaux','Complexité','Caractéristiques','Documents','Coordonnées','Estimation'];
+    var PACKS={
+      're2020-permis':{name:'RE2020 Permis',base:450,min:390,compat:'neuf',visit:0,inc:['Bbio','DH','Cep / Cep,nr','optimisation','attestation permis','notice thermique']},
+      're2020-projet':{name:'RE2020 Projet',base:690,min:590,compat:'neuf',visit:0,inc:['Pack Permis','calculs énergétiques détaillés','performances des systèmes']},
+      're2020-complete':{name:'RE2020 Complète',base:1090,min:890,compat:'neuf',visit:0,inc:['Pack Projet','ACV','Ic énergie','Ic construction','attestation permis','notice thermique']},
+      'fluides':{name:'Étude Fluides complète',base:1090,min:790,compat:'both',visit:0,inc:['déperditions','chauffage','PAC / clim','ECS','ventilation','plomberie','réseaux','dimensionnement','plans 2D','schémas']},
+      'bet-complet':{name:'BET Complet',base:1890,min:1490,compat:'neuf',visit:0,inc:['RE2020 complète','étude fluides complète','plans']},
+      'bilan-reno':{name:'Bilan thermique rénovation',base:390,min:290,compat:'reno',visit:0,renoBase:true,inc:['analyse de l’enveloppe','déperditions','préconisations']},
+      'audit':{name:'Audit énergétique volontaire',base:690,min:590,compat:'reno',visit:1,renoBase:true,inc:['visite sur site','état initial','analyse','scénarios de travaux','rapport']},
+      'reno-complete':{name:'Rénovation complète',base:1490,min:1090,compat:'reno',visit:0,renoBase:true,inc:['bilan','préconisations','fluides','dimensionnements','plans']}
+    };
     function val(id){ var el=document.getElementById(id); return el?(el.value||'').trim():''; }
-    function nom(){return val('wizNom');}
-    function tel(){return val('wizTel');}
+    function pack(){ return PACKS[answers.pack]||null; }
+
+    function coefBatiment(){
+      var b=answers.batiment;
+      if(b==='Maison individuelle')return 1.00;
+      if(b==='Appartement')return 0.75;
+      if(b==='Tertiaire')return 1.25;
+      if(b==='Immeuble collectif'){
+        var n=parseInt(val('wizLgt'),10)||0;
+        if(n>20)return null;
+        if(n>=11)return 2.40;
+        if(n>=5)return 1.80;
+        if(n>=2)return 1.40;
+        return null;
+      }
+      return 1.00;
+    }
+    function coefEtat(){ var p=pack(); if(p&&p.renoBase)return 1.00; return answers.nature==='Rénovation'?1.15:1.00; }
+    function coefSurface(){
+      var s=parseFloat(val('wizSurf'))||0;
+      if(s>500)return null;
+      if(s>=301)return 1.55;
+      if(s>=201)return 1.30;
+      if(s>=151)return 1.15;
+      if(s>=81)return 1.00;
+      if(s>=1)return 0.90;
+      return null;
+    }
+    function coefNiveaux(){ var n=answers.niveaux; if(n==='4 niveaux ou +')return 1.15; if(n==='3 niveaux')return 1.08; return 1.00; }
+    function coefComplexite(){ var c=answers.complexite; if(c==='Complexe')return 1.30; if(c==='Simple')return 0.90; return 1.00; }
+    function chk(id){ var el=document.getElementById(id); return !!(el&&el.checked); }
+
+    function compute(){
+      var p=pack(); if(!p) return {sd:true};
+      var cb=coefBatiment(), cs=coefSurface();
+      if(cb===null||cs===null) return {sd:true};
+      var core=p.base*cb*cs*coefEtat()*coefNiveaux()*coefComplexite();
+      if(core<p.min)core=p.min;
+      var visitNeeded = p.visit || chk('optVisit');
+      if(visitNeeded && answers.deplacementSurDevis) return {sd:true};
+      var total = core * (chk('optPrio')?1.25:1);
+      var extra = (visitNeeded ? (answers.deplacement||0) : 0) + (chk('optVisit')?120:0) + (chk('optVar')?120:0);
+      total = total + extra;
+      total = Math.ceil(total/10)*10;
+      return {sd:false, total:total, core:core};
+    }
+    function needsReview(){
+      var s=parseFloat(val('wizSurf'))||0, c=answers.complexite, b=answers.batiment;
+      if(s>500) return true;
+      if(s>300 && c==='Complexe') return true;
+      if(b==='Immeuble collectif' && (parseInt(val('wizLgt'),10)||0)>10) return true;
+      if(b==='Tertiaire' && s>250 && c==='Complexe') return true;
+      if(answers.carac.indexOf('Plusieurs bâtiments')>=0) return true;
+      return false;
+    }
+
     function ready(){
-      if(cur===0)return answers.prestations.length>0;
-      if(cur===1)return !!answers.batiment;
+      if(cur===0)return !!answers.pack;
+      if(cur===1)return !!answers.batiment && (answers.batiment!=='Immeuble collectif' || (parseInt(val('wizLgt'),10)||0)>=2);
       if(cur===2)return !!answers.nature;
-      if(cur===3)return !!answers.surface;
-      if(cur===4)return !!val('wizLoc');
+      if(cur===3)return (parseFloat(val('wizSurf'))||0)>0;
+      if(cur===4)return !!(val('wizVille')||val('wizCP'));
       if(cur===5)return !!answers.niveaux;
       if(cur===6)return !!answers.complexite;
       if(cur===7)return true;
-      if(cur===8)return !!(nom()&&tel());
+      if(cur===8)return true;
+      if(cur===9)return !!(val('wizNom')&&val('wizTel'));
       return true;
     }
     function refreshNext(){ nextBtn.classList.toggle('ready',ready()); }
-    function show(i){
-      cur=i;
-      steps.forEach(function(s){ s.classList.toggle('on', +s.getAttribute('data-step')===i); });
-      bar.style.width=(i/(steps.length-1)*100).toFixed(0)+'%';
-      lbl.textContent = i<9 ? ('Étape '+(i+1)+' / 9') : 'Résultat';
-      nameEl.textContent=stepNames[i];
-      backBtn.disabled = (i===0);
-      nextBtn.style.display = (i>=9)?'none':'inline-flex';
-      nextBtn.firstChild.nodeValue = (i===8)?'Valider ma demande ':'Continuer ';
-      refreshNext();
-      if(i===9) computeResult();
+
+    function filterEtat(){
+      var p=pack(); if(!p) return;
+      var opts=wiz.querySelector('.wiz-opts[data-key="nature"]'); if(!opts) return;
+      var only=null;
+      opts.querySelectorAll('.wiz-opt').forEach(function(b){
+        var nat=b.getAttribute('data-nat');
+        var ok = p.compat==='both' || p.compat===nat;
+        b.style.display = ok?'':'none';
+        if(ok && p.compat!=='both') only=b;
+      });
+      if(only){ opts.querySelectorAll('.wiz-opt').forEach(function(x){x.classList.remove('sel');}); only.classList.add('sel'); answers.nature=only.getAttribute('data-val'); }
     }
 
+    function show(i){
+      cur=i;
+      if(i===2) filterEtat();
+      steps.forEach(function(s){ s.classList.toggle('on', +s.getAttribute('data-step')===i); });
+      bar.style.width=(i/(steps.length-1)*100).toFixed(0)+'%';
+      lbl.textContent = i<10 ? ('Étape '+(i+1)+' / 10') : 'Résultat';
+      nameEl.textContent=stepNames[i];
+      backBtn.disabled = (i===0);
+      nextBtn.style.display = (i>=10)?'none':'inline-flex';
+      nextBtn.firstChild.nodeValue = (i===9)?'Voir mon estimation ':'Continuer ';
+      refreshNext();
+      if(i===10) render();
+    }
+
+    // single / multi option buttons
     steps.forEach(function(step){
       var opts=step.querySelector('.wiz-opts'); if(!opts) return;
       var key=opts.getAttribute('data-key');
-      var multi=opts.hasAttribute('data-multi');
       opts.addEventListener('click',function(e){
         var b=e.target.closest('.wiz-opt'); if(!b) return;
-        if(multi){
-          if(b.hasAttribute('data-unsure')){
-            opts.querySelectorAll('.wiz-opt.sel').forEach(function(x){ if(x!==b) x.classList.remove('sel'); });
-            b.classList.toggle('sel');
-          } else {
-            var u=opts.querySelector('.wiz-opt-unsure'); if(u) u.classList.remove('sel');
-            b.classList.toggle('sel');
-          }
-          answers.prestations=[].slice.call(opts.querySelectorAll('.wiz-opt.sel')).map(function(x){return {val:x.getAttribute('data-val'),price:+(x.getAttribute('data-price')||0)};});
-          refreshNext();
-        } else {
-          opts.querySelectorAll('.wiz-opt').forEach(function(x){x.classList.remove('sel');});
-          b.classList.add('sel');
-          if(key) answers[key]=b.getAttribute('data-val');
-          refreshNext();
-          setTimeout(function(){ if(cur<9) show(cur+1); },260);
-        }
+        opts.querySelectorAll('.wiz-opt').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+        if(key==='pack') answers.pack=b.getAttribute('data-pack'); else if(key) answers[key]=b.getAttribute('data-val');
+        if(key==='batiment'){ var w=document.getElementById('wizLgtWrap'); if(w) w.hidden = (answers.batiment!=='Immeuble collectif'); }
+        refreshNext();
+        // auto-avance sauf si un sous-champ doit être rempli (collectif → logements)
+        var wait = (key==='batiment' && answers.batiment==='Immeuble collectif');
+        if(!wait) setTimeout(function(){ if(cur<10 && ready()) show(cur+1); },260);
       });
     });
-    ['wizNom','wizTel','wizLoc'].forEach(function(id){var el=document.getElementById(id); if(el) el.addEventListener('input',refreshNext);});
-    var wizFiles=document.getElementById('wizFiles');
-    if(wizFiles){
-      wizFiles.addEventListener('change',function(){
-        answers.files=[].map.call(wizFiles.files,function(f){return f.name;});
-        var list=document.getElementById('wizFilesList');
-        if(list) list.innerHTML=answers.files.map(function(n){return '<span>'+String(n).replace(/[<>&]/g,'')+'</span>';}).join('');
-      });
+
+    // inputs → refresh + geocode
+    ['wizNom','wizTel','wizVille','wizCP','wizSurf','wizLgt'].forEach(function(id){var el=document.getElementById(id); if(el) el.addEventListener('input',refreshNext);});
+    // caractéristiques
+    var carac=document.getElementById('wizCarac');
+    if(carac){ carac.addEventListener('change',function(){
+      answers.carac=[].slice.call(carac.querySelectorAll('input:checked')).map(function(x){return x.value;});
+      var n=answers.carac.length, sug=document.getElementById('wizSuggest');
+      if(sug){ if(n>=4){sug.hidden=false;sug.textContent='Au regard des caractéristiques, votre projet semble plutôt « Complexe ».';}
+        else if(n>=2){sug.hidden=false;sug.textContent='Au regard des caractéristiques, votre projet semble plutôt « Standard ».';}
+        else {sug.hidden=true;} }
+    }); }
+    // architecte conditionnel
+    var archiSel=document.getElementById('wizArchiSuivi');
+    if(archiSel){ archiSel.addEventListener('change',function(){ var w=document.getElementById('wizArchiWrap'); if(w) w.hidden = (archiSel.value!=='Oui'); }); }
+    // options → recalcul en direct
+    ['optPrio','optVisit','optVar'].forEach(function(id){var el=document.getElementById(id); if(el) el.addEventListener('change',render);});
+
+    // géocodage du code postal → déplacement depuis Reims
+    var REIMS={lat:49.2583,lon:4.0317};
+    function haversine(a,b){var R=6371,dLat=(b.lat-a.lat)*Math.PI/180,dLon=(b.lon-a.lon)*Math.PI/180,la1=a.lat*Math.PI/180,la2=b.lat*Math.PI/180;var h=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.sin(dLon/2)*Math.sin(dLon/2)*Math.cos(la1)*Math.cos(la2);return R*2*Math.atan2(Math.sqrt(h),Math.sqrt(1-h));}
+    function deplFromKm(km){ if(km<=25)return 0; if(km<=50)return 60; if(km<=100)return 120; if(km<=150)return 200; return null; }
+    var geoTimer=null;
+    function geocode(){
+      var cp=val('wizCP'); answers.deplacement=0; answers.deplacementSurDevis=false;
+      if(!/^\d{5}$/.test(cp)) return;
+      try{
+        fetch('https://api-adresse.data.gouv.fr/search/?q='+encodeURIComponent(cp)+'&type=municipality&limit=1')
+        .then(function(r){return r.json();})
+        .then(function(j){
+          if(j&&j.features&&j.features[0]){
+            var c=j.features[0].geometry.coordinates; // [lon,lat]
+            var km=haversine(REIMS,{lat:c[1],lon:c[0]});
+            var d=deplFromKm(km);
+            if(d===null){answers.deplacementSurDevis=true;answers.deplacement=0;}else{answers.deplacement=d;}
+          }
+        }).catch(function(){});
+      }catch(e){}
     }
-    nextBtn.addEventListener('click',function(){ if(ready()) show(Math.min(cur+1,9)); });
+    var cpEl=document.getElementById('wizCP');
+    if(cpEl){ cpEl.addEventListener('input',function(){ clearTimeout(geoTimer); geoTimer=setTimeout(geocode,500); }); }
+
+    // fichiers
+    var wizFiles=document.getElementById('wizFiles');
+    if(wizFiles){ wizFiles.addEventListener('change',function(){
+      answers.files=[].map.call(wizFiles.files,function(f){return f.name;});
+      var list=document.getElementById('wizFilesList');
+      if(list) list.innerHTML=answers.files.map(function(n){return '<span>'+String(n).replace(/[<>&]/g,'')+'</span>';}).join('');
+    }); }
+
+    nextBtn.addEventListener('click',function(){ if(ready()) show(Math.min(cur+1,10)); });
     backBtn.addEventListener('click',function(){ if(cur>0) show(cur-1); });
 
-    function computeResult(){
-      var recapEl=document.getElementById('wizRecap');
+    function esc(s){return String(s).replace(/[<>&]/g,'');}
+    function render(){
+      var p=pack();
+      var res=compute();
+      var priceEl=document.getElementById('wizPrice'), noteEl=document.getElementById('wizPriceNote');
+      // masque l'option "visite" si déjà comprise (audit)
+      var ovw=document.getElementById('optVisitWrap'); if(ovw) ovw.hidden = !!(p&&p.visit);
+      if(res.sd){
+        priceEl.textContent='Sur devis';
+        noteEl.textContent='Votre projet nécessite une vérification rapide de nos ingénieurs avant confirmation du tarif. Transmettez vos documents : votre devis définitif vous sera envoyé.';
+      } else {
+        priceEl.textContent=res.total.toLocaleString('fr-FR')+' €';
+        noteEl.textContent = needsReview()
+          ? 'Estimation indicative. Votre projet sera vérifié par nos ingénieurs avant confirmation du tarif.'
+          : 'Estimation indicative, confirmée après réception de vos documents.';
+      }
+      // récap
       var chips=[];
-      answers.prestations.forEach(function(p){chips.push(p.val);});
-      if(answers.batiment)chips.push(answers.batiment);
+      if(p)chips.push(p.name);
+      if(answers.batiment){var bt=answers.batiment; if(answers.batiment==='Immeuble collectif'&&val('wizLgt'))bt+=' ('+val('wizLgt')+' logts)'; chips.push(bt);}
       if(answers.nature)chips.push(answers.nature);
-      if(answers.surface)chips.push(answers.surface);
-      if(val('wizLoc'))chips.push(val('wizLoc'));
+      if(val('wizSurf'))chips.push(val('wizSurf')+' m²');
       if(answers.niveaux)chips.push(answers.niveaux);
-      if(answers.complexite)chips.push(answers.complexite);
-      recapEl.innerHTML=chips.map(function(c){return '<span>'+String(c).replace(/[<>&]/g,'')+'</span>';}).join('');
-      var msg='Bonjour BETTHER, demande de devis gratuit.'
-        +'\nPrestations : '+(answers.prestations.map(function(p){return p.val;}).join(', ')||'-')
-        +'\nBâtiment : '+(answers.batiment||'-')
-        +'\nProjet : '+(answers.nature||'-')
-        +'\nSurface : '+(answers.surface||'-')
-        +'\nLocalisation : '+(val('wizLoc')||'-')
+      if(answers.complexite)chips.push('Projet '+answers.complexite.toLowerCase());
+      if(val('wizVille'))chips.push(val('wizVille'));
+      if(chk('optPrio'))chips.push('Prioritaire 48 h');
+      if(chk('optVisit'))chips.push('Visite sur site');
+      if(chk('optVar'))chips.push('Variante énergétique');
+      document.getElementById('wizRecap').innerHTML=chips.map(function(c){return '<span>'+esc(c)+'</span>';}).join('');
+      // inclus
+      var incEl=document.getElementById('wizIncludes');
+      if(incEl){ incEl.innerHTML = p ? ('<div class="inc-t">Comprend</div>'+p.inc.map(function(x){return '<span>'+esc(x)+'</span>';}).join('')) : ''; }
+      // SMS
+      var opts=[]; if(chk('optPrio'))opts.push('Prioritaire 48h (+25%)'); if(chk('optVisit'))opts.push('Visite sur site (+120€)'); if(chk('optVar'))opts.push('Variante énergétique (+120€)');
+      var msg='Bonjour BET·THER, demande de devis.'
+        +'\nPack : '+((p&&p.name)||'-')
+        +'\nEstimation : '+(res.sd?'Sur devis':(res.total.toLocaleString('fr-FR')+' €'))
+        +'\nBâtiment : '+(answers.batiment||'-')+(answers.batiment==='Immeuble collectif'&&val('wizLgt')?(' ('+val('wizLgt')+' logts)'):'')
+        +'\nÉtat : '+(answers.nature||'-')
+        +'\nSurface : '+(val('wizSurf')?val('wizSurf')+' m²':'-')
+        +'\nLocalisation : '+([val('wizAdr'),val('wizCP'),val('wizVille')].filter(Boolean).join(' ')||'-')
         +'\nNiveaux : '+(answers.niveaux||'-')
         +'\nComplexité : '+(answers.complexite||'-')
-        +'\nNom : '+(nom()||'-')
-        +'\nTel : '+(tel()||'-')
-        +'\nEmail : '+(val('wizEmail')||'-')
-        +'\nArchitecte : '+(val('wizArchi')||'-')
+        +'\nParticularités : '+(answers.carac.length?answers.carac.join(', '):'-')
+        +(opts.length?('\nOptions : '+opts.join(', ')):'')
+        +'\nContact : '+([val('wizPrenom'),val('wizNom')].filter(Boolean).join(' ')||'-')+' · '+(val('wizTel')||'-')+' · '+(val('wizEmail')||'-')
+        +'\nProfil : '+(val('wizProfil')||'-')
+        +'\nArchitecte : '+(val('wizArchiSuivi')||'-')+(val('wizArchi')?(' — '+val('wizArchi')):'')+(chk('wizArchiAuth')?' (contact autorisé)':'')
         +'\nCommentaires : '+(val('wizComm')||'-')
-        +'\nDocuments : '+(answers.files&&answers.files.length?answers.files.join(', '):'à transmettre')
-        +'\nJe joins mes plans/photos/factures pour établir le devis.';
+        +'\nDocuments : '+(answers.files.length?answers.files.join(', '):'à transmettre');
       document.getElementById('wizSend').setAttribute('href','sms:+33618137645?body='+encodeURIComponent(msg));
     }
     show(0);
   })();
+
 
 </script>
 
